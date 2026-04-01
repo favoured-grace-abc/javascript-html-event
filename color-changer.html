@@ -1,0 +1,41 @@
+<!-- Create 3 buttons: Red, Green, Blue. When each button is clicked, change the background colour of the page to match.
+
+**Hint:** Use `document.body.style.backgroundColor`. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="m-auto p-0 bg-gray-100 h-screen flex flex-col justify-center items-center gap-20">
+
+    <div class="bg-gray-200 w-1/2 h-[60vh] flex justify-center items-center gap-20 shadow-md p-6">
+        <button id="red" class="bg-[red] p-4 w-fit h-fit ">RED</button>
+        <button id="green" class= "bg-[green] p-4 w-fit h-fit">GREEN</button>
+        <button id="blue" class= "bg-[blue] p-4 w-fit h-fit">BLUE</button>
+    </div>
+    
+</body>
+
+<script>
+    const redButton = document.getElementById("red");
+    const greenButton = document.getElementById("green");
+    const blueButton = document.getElementById("blue");
+    redButton.addEventListener("click", () => {
+        document.body.style.backgroundColor = "red";
+    });
+
+    greenButton.addEventListener("click", () => {
+        document.body.style.backgroundColor = "green";
+    });
+
+    blueButton.addEventListener("click", () => {
+        document.body.style.backgroundColor = "blue";
+    });
+
+
+
+</script>
+</html>
