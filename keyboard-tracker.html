@@ -1,3 +1,6 @@
+<!-- Display a `<p>` on screen. Whenever the user presses any key, update the paragraph to show: `"Last key pressed: A"` (replacing A with whatever key was pressed).
+
+**Hint:** Listen on `document` for the `keydown` event and use `event.key`. -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,13 +17,13 @@
     >
       <div class="flex flex-col justify-center items-center gap-6">
         <label for="comment">Type something here:</label>
-        <textarea
+        <input
           name=""
           id="Comment"
           cols="60"
           rows="10"
           class="border-1 border-[black]"
-        ></textarea>
+        >
       </div>
       <p
         id="displayResult"
@@ -31,11 +34,14 @@
   <script>
     const Comment = document.getElementById("Comment");
     const displayResult = document.getElementById("displayResult");
-    function countWords() {
-      let words = Comment.value.length;
-      displayResult.textContent = `You have typed ${words} words`;
+
+    function getLastKeyPressed(event) {
+        const lastKey = event.key;
+        displayResult.textContent = `${lastKey}`;
+        
     }
 
-    Comment.addEventListener("input", countWords);
-  </script>
+    Comment.addEventListener("keydown", getLastKeyPressed);
+    
+</script>
 </html>
