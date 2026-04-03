@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body
+    class="m-auto p-0 bg-gray-100 h-screen flex flex-col gap-20 items-center justify-center"
+    overflow="scroll"
+  >
+    <div
+      class="m-auto p-0 bg-gray-300 h-screen flex gap-20 items-center justify-center"
+    >
+      <div class="flex gap-8 items-center justify-center">
+        <div class="flex flex-col gap-4 justify-center items-center">
+          <label for="item">Enter an item:</label>
+          <input
+            type="text"
+            id="item"
+            name="item"
+            class="border-2 w-[100%] h-[50px] rounded-md p-4 text-2xl font-semibold bg-gray-300 flex items-center justify-center"
+          />
+        </div>
+
+        <button
+          id="addButton"
+          class="w-fit h-fit px-6 py-4 bg-blue-500 rounded-md"
+        >
+          Add to List
+        </button>
+      </div>
+      <ul
+        id="itemList"
+        class="shadow-2xl border-1 w-[30vw] h-[50vh] overflow-scroll bg-gray-200 rounded-md p-4 text-2xl font-semibold"
+      ></ul>
+    </div>
+  </body>
+  <script>
+    const addButton = document.getElementById("addButton");
+    const itemList = document.getElementById("itemList");
+    const itemInput = document.getElementById("item");
+    addButton.addEventListener("click", () => {
+      const itemText = itemInput.value.trim();
+      if (itemText !== "") {
+        const listItem = document.createElement("li");
+        listItem.textContent = itemText;
+        itemList.appendChild(listItem);
+        itemInput.value = "";
+      }
+    });
+  </script>
+</html>
